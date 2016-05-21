@@ -16,9 +16,9 @@ class reptiles :public animal
 {
 	int totalR;
 public:
-	reptiles(int r)
+	reptiles()
 	{
-		totalR = r;
+		totalR = 3;
 	}
 	string myType(){ return "Reptiles"; }
 	int feedAnimals(){ return 1; }
@@ -26,7 +26,7 @@ public:
 	int healthRecords(){ return 1; }
 
 
-	void setTotalR(int r){ totalR = r; }
+	//void setTotalR(int r){ totalR = r; }
 	int getTotalR(){ return totalR; }
 };
 
@@ -34,12 +34,12 @@ class mammals :public animal
 {
 	int totalM;
 public:
-	mammals(int m)
+	mammals()
 	{
-		totalM = m;
+		totalM = 5;
 	}
 	string myType(){ return "Mammals"; }
-	void setTotalM(int m){ totalM = m; }
+	//void setTotalM(int m){ totalM = m; }
 	int getTotalM(){ return totalM; }
 	int feedAnimals(){ return 0; }
 	int cleanAnimals(){ return 1; }
@@ -51,12 +51,11 @@ class birds : public animal
 {
 	int totalB;
 public:
-	birds(int b)
+	birds()
 	{
-		totalB = b;
+		totalB = 10;
 	}
 	string myType(){ return "Birds"; }
-	void setTotalB(int b){ totalB = b; }
 	int getTotaolB(){ return totalB; }
 	int feedAnimals(){ return 1; }
 	int cleanAnimals(){ return 1; }
@@ -82,17 +81,18 @@ class zoo
 
 private:
 	animal *a;
-	birds b(10);
-	reptiles r(5);
-	mammals m(5);
+	birds b; mammals m; reptiles r;
 	people p[5];
 	int totalAnimals;
 	int revenuegenerated;
 
 public:
 	zoo(){ revenuegenerated = 0; }
-	void setTotalNumber(int n){ totalAnimals = n; }
-	int getTotalNumber(){ return totalAnimals; }
+	int getTotalNumber()
+	{ 
+		totalAnimals = b.getTotaolB() + m.getTotalM() + r.getTotalR();
+		return totalAnimals; 
+	}
 
 	int getRevenueGenerated()
 	{
