@@ -94,6 +94,59 @@ public:
 		return totalAnimals; 
 	}
 
+	void health()
+	{
+		if (b.feedAnimals() == 1)
+		{
+			a = &b;
+			cout << endl << "\t" << a->myType() << " are feeded. ";
+		}
+		else
+			cout << endl << "\t" << a->myType() << " are not feeded. ";
+		if (r.feedAnimals() == 1)
+		{
+			a = &r;
+			cout << endl << "\t" << a->myType() << " are feeded. ";
+		}
+		else
+			cout << endl << "\t" << a->myType() << " are not feeded. ";
+		if (m.feedAnimals() == 1)
+		{
+			a = &m;
+			cout << endl << "\t" << a->myType() << " are feeded. ";
+		}
+		else
+			cout << endl << "\t" << a->myType() << " are not feeded. ";
+		
+	}
+
+	void clean()
+	{
+		if (b.cleanAnimals() == 1)
+		{
+			a = &b;
+			cout << endl << "\t" << a->myType() << " are cleaned. ";
+		}
+		else
+			cout << endl << "\t" << a->myType() << " are not cleaned. ";
+		if (r.cleanAnimals() == 1)
+		{
+			a = &r;
+			cout << endl << "\t" << a->myType() << " are cleaned. ";
+		}
+		else
+			cout << endl << "\t" << a->myType() << " are not cleaned. ";
+		if (m.cleanAnimals() == 1)
+		{
+			a = &m;
+			cout << endl << "\t" << a->myType() << " are cleaned. ";
+		}
+		else
+			cout << endl << "\t" << a->myType() << " are not cleaned. ";
+
+	}
+
+
 	int getRevenueGenerated()
 	{
 		for (int i = 0; i < 5; i++)
@@ -123,8 +176,7 @@ public:
 		int i = 0;
 		while (i<5)
 		{
-			cout << endl << "   Feedbacks    " << endl
-				<< "Person " << i + 1 << " feedback is " << endl
+			cout << "Person " << i + 1 << " feedback is " << endl
 				<< "\t" << p[i].getFeedback() << endl << endl;
 			i++;
 		}
@@ -135,13 +187,16 @@ int main()
 {
 	cout << endl << "            Welcome to zoo" << endl;
 	zoo z;
+	cout << "Total animals in zoo are " << z.getTotalNumber() << endl;
 	z.peopleVisit();
-	
-
-
+	cout << endl << endl << "==>Animals cleanliness report " << endl;
+	z.clean();
+	cout << endl << endl << "==>Animals health report " << endl;
+	z.health();
 
 	int revenue = z.getRevenueGenerated();
-	cout << "Total revenue generated is " << revenue << endl;
+	cout << endl << endl << "==>Total revenue generated is " << revenue << endl;
+	cout << endl << "   Feedbacks    " << endl;
 	z.displayFeedback();
 	_getche();
 	return 0;
