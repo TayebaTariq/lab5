@@ -16,6 +16,10 @@ class reptiles :public animal
 {
 	int totalR;
 public:
+	reptiles(int r)
+	{
+		totalR = r;
+	}
 	string myType(){ return "Reptiles"; }
 	int feedAnimals(){ return 1; }
 	int cleanAnimals(){ return 0; }
@@ -30,6 +34,10 @@ class mammals :public animal
 {
 	int totalM;
 public:
+	mammals(int m)
+	{
+		totalM = m;
+	}
 	string myType(){ return "Mammals"; }
 	void setTotalM(int m){ totalM = m; }
 	int getTotalM(){ return totalM; }
@@ -43,6 +51,10 @@ class birds : public animal
 {
 	int totalB;
 public:
+	birds(int b)
+	{
+		totalB = b;
+	}
 	string myType(){ return "Birds"; }
 	void setTotalB(int b){ totalB = b; }
 	int getTotaolB(){ return totalB; }
@@ -69,8 +81,10 @@ class zoo
 {
 
 private:
-	animal a[19];
-	//birds b[10]; reptiles r[4]; mammals m[5];
+	animal *a;
+	birds b(10);
+	reptiles r(5);
+	mammals m(5);
 	people p[5];
 	int totalAnimals;
 	int revenuegenerated;
@@ -122,6 +136,7 @@ int main()
 	cout << endl << "            Welcome to zoo" << endl;
 	zoo z;
 	z.peopleVisit();
+	
 
 
 
