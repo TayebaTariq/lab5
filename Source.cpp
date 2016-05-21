@@ -17,7 +17,10 @@ class reptiles :public animal
 	int totalR;
 public:
 	string myType(){ return "Reptiles"; }
-
+	void feedAnimals()
+	{
+		cout << "Please feed Reptiles: ";
+	}
 	void setTotalR(int r){ totalR = r; }
 	int getTotalR(){ return totalR; }
 };
