@@ -8,19 +8,20 @@ class animal
 {
 public:
 	virtual string myType(){ return "Animal"; }
-	virtual void feedAnimals();
-	virtual void cleanAnimals();
-	virtual void healthRecords();
+	virtual int feedAnimals() = 0;
+	virtual int cleanAnimals() = 0;
+	virtual int healthRecords() = 0;
 };
 class reptiles :public animal
 {
 	int totalR;
 public:
 	string myType(){ return "Reptiles"; }
-	void feedAnimals()
-	{
-		cout << "Please feed Reptiles: ";
-	}
+	int feedAnimals(){ return 1; }
+	int cleanAnimals(){ return 0; }
+	int healthRecords(){ return 1; }
+
+
 	void setTotalR(int r){ totalR = r; }
 	int getTotalR(){ return totalR; }
 };
@@ -32,6 +33,10 @@ public:
 	string myType(){ return "Mammals"; }
 	void setTotalM(int m){ totalM = m; }
 	int getTotalM(){ return totalM; }
+	int feedAnimals(){ return 0; }
+	int cleanAnimals(){ return 1; }
+	int healthRecords(){ return 1; }
+
 };
 
 class birds : public animal
@@ -41,6 +46,10 @@ public:
 	string myType(){ return "Birds"; }
 	void setTotalB(int b){ totalB = b; }
 	int getTotaolB(){ return totalB; }
+	int feedAnimals(){ return 1; }
+	int cleanAnimals(){ return 1; }
+	int healthRecords(){ return 1; }
+
 };
 
 class people
